@@ -1,4 +1,4 @@
-import pyglet
+from pyglet.gl import *
 
 window = pyglet.window.Window()
 
@@ -10,7 +10,12 @@ label = pyglet.text.Label('Hello, world',
 
 @window.event
 def on_draw():
-    window.clear()
-    label.draw()
+  glClear(GL_COLOR_BUFFER_BIT)
+  glLoadIdentity()
+  glBegin(GL_TRIANGLES)
+  glVertex2f(0, 0)
+  glVertex2f((window.width/2), 0)
+  glVertex2f((window.width/2), (window.height/2))
+  glEnd()
 
 pyglet.app.run()
