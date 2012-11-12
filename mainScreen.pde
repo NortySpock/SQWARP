@@ -20,6 +20,11 @@ void draw() {
   triangle(30,75,59,20,86,75)
 }
 
+function Ship {
+}
+Ship.prototype.heading = 0
+
+
 function posRatioTriangle(x,y,ratio) {
 
 }
