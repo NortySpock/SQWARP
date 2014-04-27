@@ -1,16 +1,13 @@
-import pyglet
+import pygame, sys
+from pygame.locals import *
 
-window = pyglet.window.Window()
+pygame.init()
+DISPLAYSURF = pygame.display.set_mode((400,300))
+pygame.display.set_caption('Hello World!')
 
-label = pyglet.text.Label('Hello, world',
-                          font_name='Times New Roman',
-                          font_size=36,
-                          x=window.width//2, y=window.height//2,
-                          anchor_x='center', anchor_y='center')
-
-@window.event
-def on_draw():
-    window.clear()
-    label.draw()
-
-pyglet.app.run()
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    pygame.display.update()
