@@ -14,9 +14,9 @@ RED   = (255,  0,  0)
 GREEN = (  0,255,  0)
 BLUE  = (  0,  0,255)
 
-DISPLAYSURF.fill(WHITE)
+DISPLAYSURF.fill(BLACK)
 
-pygame.draw.polygon(DISPLAYSURF, GREEN,((146,0),(291,106),(236,277),(56,277),(0,106)))
+pygame.draw.polygon(DISPLAYSURF, GREEN,((250,200),(245,210),(250,206),(255,210)))
 
 while True:
     for event in pygame.event.get():
