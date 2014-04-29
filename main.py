@@ -9,7 +9,7 @@ main_window_height = 400
 
 pygame.init()
 
-FPS = 30
+FPS = 10
 fpsClock = pygame.time.Clock()
 
 DISPLAYSURF = pygame.display.set_mode((main_window_width,main_window_height),0,32)
@@ -21,14 +21,38 @@ RED   = (255,  0,  0)
 GREEN = (  0,255,  0)
 BLUE  = (  0,  0,255)
 
-DISPLAYSURF.fill(BLACK)
-draw_ship(GREEN,(250,200))
+
+shipx = 250
+shipy = 200
+
+direction = 'right'
 
 
 while True:
+    DISPLAYSURF.fill(BLACK)
+    draw_ship(GREEN,(shipx,shipy))
+    
+    if direction == 'right':
+        shipx += 5
+        if shipx >= 400:
+            direction = 'down'
+    elif direction == 'down':
+        shipy += 5
+        if shipy >= 300:
+            direction = 'left'
+    elif direction == 'left':
+        shipx -= 5
+        if shipx <= 100:
+            direction = 'up'
+    elif direction == 'up':
+        shipy -= 5
+        if shipy <= 100:
+            direction = 'right'
+    
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
     pygame.display.update()
+    fpsClock.tick(FPS)
 
